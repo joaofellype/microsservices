@@ -1,7 +1,6 @@
 package com.pagamento.pix.application.pix.save;
 
 import com.pagamento.pix.application.users.save.UserRequest;
-import com.pagamento.pix.core.domain.aggregates.users.User;
 
 import java.time.LocalDateTime;
 
@@ -13,6 +12,24 @@ public class PixRequest {
     private LocalDateTime dateTransaction;
     private UserRequest userReceived;
     private String value;
+    private String idUserSend;
+    private String idUserReceived;
+
+    public String getIdUserSend() {
+        return idUserSend;
+    }
+
+    public void setIdUserSend(String idUserSend) {
+        this.idUserSend = idUserSend;
+    }
+
+    public String getIdUserReceived() {
+        return idUserReceived;
+    }
+
+    public void setIdUserReceived(String idUserReceived) {
+        this.idUserReceived = idUserReceived;
+    }
 
     public String getId() {
         return id;

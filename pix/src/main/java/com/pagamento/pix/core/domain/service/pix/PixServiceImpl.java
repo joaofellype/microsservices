@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -27,11 +28,10 @@ public class PixServiceImpl implements PixService{
     @Override
     public void create(PixRequest pixRequest) {
 
-        User users = client.getForObject("http://user/{id}", User.class,"123");
-        System.out.println(users.getName());
+
         var pix = Pix.create(pixRequest.getId(),pixRequest.getIdTransaction(),
                 User.create(pixRequest.getUserSend().getId(),pixRequest.getUserSend().getName(),pixRequest.getUserSend().getCpf()),
-                pixRequest.getDateTransaction(),
+                LocalDateTime.now(),
                 User.create(pixRequest.getUserSend().getId(),pixRequest.getUserSend().getName(),pixRequest.getUserSend().getCpf()),
                 pixRequest.getValue());
 

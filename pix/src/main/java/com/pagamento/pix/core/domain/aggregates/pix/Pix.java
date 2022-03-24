@@ -7,49 +7,55 @@ import java.time.LocalDateTime;
 public class Pix {
 
 
-   private String id;
-   private String idTransaction;
-   private User userSend;
-   private LocalDateTime dateTransaction;
-   private User userReceived;
-   private String value;
+    private String id;
+    private String idTransaction;
+    private User userSend;
+    private LocalDateTime dateTransaction;
+    private User userReceived;
+    private String value;
 
-   private Pix(String id, String idTransaction, User userSend, LocalDateTime dateTransaction, User userReceived, String value) {
-      this.id = id;
-      this.idTransaction = idTransaction;
-      this.userSend = userSend;
-      this.dateTransaction = dateTransaction;
-      this.userReceived = userReceived;
-      this.value = value;
-   }
+    private Pix(String id, String idTransaction, LocalDateTime dateTransaction, String value) {
+        this.id = id;
+        this.idTransaction = idTransaction;
+        this.dateTransaction = dateTransaction;
+        this.value = value;
+    }
 
-   public  static Pix create(String id, String idTransaction, User userSend, LocalDateTime dateTransaction, User userReceived, String value){
-      var pix = new Pix(id, idTransaction,userSend,dateTransaction,userReceived,value);
-      return pix;
-   }
-   public String getId() {
-      return id;
-   }
+    public static Pix create(String id, String idTransaction, LocalDateTime dateTransaction, String value) {
+        var pix = new Pix(id, idTransaction, dateTransaction, value);
+        return pix;
+    }
 
-   public String getIdTransaction() {
-      return idTransaction;
-   }
+    public String getId() {
+        return id;
+    }
 
-   public LocalDateTime getDateTransaction() {
-      return dateTransaction;
-   }
+    public String getIdTransaction() {
+        return idTransaction;
+    }
 
-   public User getUserSend() {
-      return userSend;
-   }
+    public LocalDateTime getDateTransaction() {
+        return dateTransaction;
+    }
 
-   public User getUserReceived() {
-      return userReceived;
-   }
+    public User getUserSend() {
+        return userSend;
+    }
 
-   public String getValue() {
-      return value;
-   }
+    public void setUserSend(User userSend) {
+        this.userSend = userSend;
+    }
 
+    public User getUserReceived() {
+        return userReceived;
+    }
+
+    public void setUserReceived(User userReceived) {
+        this.userReceived = userReceived;
+    }
+
+    public String getValue() {
+        return value;
+    }
 }
 

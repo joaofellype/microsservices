@@ -15,12 +15,4 @@ public class PixApplication {
     public static void main(String[] args) {
         SpringApplication.run(PixApplication.class, args);
     }
-
-    @Bean
-    @LoadBalanced
-    public RestTemplate getRestTemplate() {
-        return new RestTemplate();
-    }
-
-
 }
